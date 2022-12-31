@@ -1,0 +1,139 @@
+.header {
+    height: 120px;
+    background-image: linear-gradient(0, #FD6133, #F53F2D);
+}
+
+.header__navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__navbar-list {
+    list-style: none;
+    padding-left: 0;
+    /* ul có margin y mặc định là 10px */
+    margin-top: 4px;
+}
+
+.header__navbar-item {
+    margin: 0 8px;
+    position: relative;
+    /* Nếu height li là số lẻ thì mặc dù canh lẻ vẫn sẽ bị lệch 1px, nên đặt min-heigt cho nó là số chẵn */
+}
+
+.header__navbar-item--has-qr:hover .header__qr {
+    /* Do khoảng các giữa li và qr nên tăng top thì hover gãy bị ẩn*/
+    display: block;
+}
+
+.header__navbar-item, .header__navbar-item-link {
+    display: inline-block;
+    font-size: 1.4rem;
+    color: var(--white-color);
+    font-weight: 300;
+    text-decoration: none;
+}
+
+/* Vì muốn canh đều chữ và icon trong thẻ a chứ không phải text và li */
+.header__navbar-item, .header__navbar-item-link,
+.header__navbar-icon {
+    display: inline-flex;
+    align-items: center;
+}
+
+
+.header__navbar-item:hover,
+ .header__navbar-item-link:hover,
+ .header__navbar-icon-link:hover {
+    /* Vẫn màu trắng nhưng hơi đục, nên là rgba */
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+}
+
+.header__navbar-item--strong {
+    font-weight: 400;
+}
+
+.header__navbar-item--separate::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 16px;
+    background-color: #FB9086;
+    /* top: 0;
+    right: 0; */
+    /* Độ cao của thẻ cha li chứa nó */
+    top: 50%;
+    right: -8px;
+    /* Độ cao của chính nó */
+    transform: translateY(-50%);
+}
+
+.header__navbar-icon-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.header__navbar-icon {
+    font-size: 1.8rem;
+    margin: 0 4px;
+}
+
+.header__navbar-title--no-pointer {
+    cursor: text;
+    color: var(--white-color);
+}
+
+
+/* Header QR code */
+.header__qr {
+    background-color: var(--white-color);
+    width: 186px;
+    position: absolute;
+    /* Bằng height của thẻ chứa nó, tức là li */
+    top: 118%;
+    left: 0;
+    padding: 8px;
+    border-radius: 2px;
+    display: none;
+    animation: fadeIn ease-in 1s;
+}
+
+/* Nhiệm vụ là dùng thằng này làm cái cầu */
+.header__qr::before {
+    content: "";
+    display: block;
+    position: absolute;
+    /* Bằng chiều ngang của chính thằng qr */
+    width: 100%;
+    /* height: 18% là % của thẻ qr mât r */
+    /* height: 18%; */
+    height: 20px;
+    left: 0;
+    top: -11px;
+    /* background-color: red; */
+}
+
+.header__qr-img {
+    width: 100%;
+}
+
+.header__qr-apps {
+    display: flex;
+    /* Nếu để img trong flex, nó sẽ thành flex-item, hình bị méo, nên để vào thẻ a */
+    justify-content: space-between;
+}
+
+.header__qr-download-img {
+    /* Width 2 hình khác nhau */
+    height: 16px;
+}
+
+.header__qr-link:first-child {
+    margin-left: 10px;
+}
+
+.header__qr-link:last-child {
+    margin-right: 10px;
+}

@@ -1,0 +1,53 @@
+:root {
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    /* Mặc định font-size 100% là 16px, để 62.5% tức là 10px. Để dễ tính sang rem */
+    /* 1rem is 10px
+    1.2rem is 12px
+    1.4rem is 14px
+    */
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    /* Dùng thước đo kích thước chữ là 16px */
+    line-height: 1.6rem;
+}
+
+.grid {
+    /* Kích thước màn hình lớn hơn 1200px thì lấy 1200px, nhỏ hơn 1200px thì lấy chính kích thước nhỏ đó */
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__full-width {
+    /* Nếu muốn lấy kích thước màn hình lớn 1200px ví dụ lấy 1300px thì nhận 1300px */
+    /* thêm class này vào sau .grid */
+    width: 100%;
+}
+
+    /* Những phần tử con của nó sẽ nằm trên hàng ngang
+    Nếu độ dài tổng phần tử con lớn hơn độ dài grid__row thì tự động xuống dòng bằng wrap
+    */
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*  Viết ở đây để sử dụng được ở nhiều nơi */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
